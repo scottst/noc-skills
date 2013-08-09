@@ -1,0 +1,22 @@
+Launching the webpage http://ec2-54-226-114-52.compute-1.amazonaws.com:8000/ generates an error
+
+Backend Data Error
+
+Unable to connect to the back-end service at http://localhost:24080/list
+
+The Java Application that should be listening on 24080 is not running for some reason.
+
+Did find the Python and Mongo applications running and appear to be listening on the right ports
+tcp        0      0 0.0.0.0:28017               0.0.0.0:*                   LISTEN      834/mongod   
+tcp        0      0 0.0.0.0:27017               0.0.0.0:*                   LISTEN      834/mongod 
+tcp        0      0 0.0.0.0:8000                0.0.0.0:*                   LISTEN      1019/python 
+
+The startup script /etc/init.d/NocSkillsAPI is not running
+Starting the NocSkillsAPI fails with the error
+
+Starting NocSkillsAPI: cat: /var/run/NocSkillsAPI.pid: No such file or directory
+The NocSkillsAPI is responsible for starting the Java app
+
+I'm certain the PID file creation is the hangup but my research so far has not given me a 
+clear enough understanding on how to fix the script. 
+
